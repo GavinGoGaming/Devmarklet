@@ -5,7 +5,8 @@
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const url = urlParams.get('url');
+const url = params.get("url");
+
 const a = document.createElement('a');
 a.innerText = "Drag me to your bookmarks bar!";
 const b = document.querySelector('b');
