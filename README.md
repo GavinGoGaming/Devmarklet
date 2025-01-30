@@ -8,3 +8,15 @@ As of PXtoVP v2, it uses the [Gloe Devtool library](https://github.com/klashdeve
 
 [Install](https://pages.gavingogaming.com/Devmarklet/?url=https://raw.githubusercontent.com/GavinGoGaming/Devmarklet/main/pxtvp/bookmarklet.js)
 [Source Code](https://github.com/GavinGoGaming/Devmarklet/raw/main/pxtvp/source.js)
+
+Min. Gloe ver: u1
+
+
+**Shkrrch** is a little silly Gloe window that has fun features such as comic sansify, hover rotate, text remake, and more.
+
+It also uses the [Gloe library](https://github.com/klashdevelopment/gloe/blob/main/README.md) for windows and functions.
+
+[Install](https://pages.gavingogaming.com/Devmarklet/?url=https://raw.githubusercontent.com/GavinGoGaming/Devmarklet/main/shkrrch/bookmarklet.js)
+[Source Code](https://github.com/GavinGoGaming/Devmarklet/raw/main/shkrrch/source.js)
+
+Min. Gloe ver: u3
