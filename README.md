@@ -20,3 +20,13 @@ It also uses the [Gloe library](https://github.com/klashdevelopment/gloe/blob/ma
 [Source Code](https://github.com/GavinGoGaming/Devmarklet/raw/main/shkrrch/source.js)
 
 Min. Gloe ver: u3
+
+
+**Aeries** is an aeries calc utility for making make-believe assignments.
+
+It also uses the [Gloe library](https://github.com/klashdevelopment/gloe/blob/main/README.md) for windows and functions.
+
+[Install](https://pages.gavingogaming.com/Devmarklet/?url=https://raw.githubusercontent.com/GavinGoGaming/Devmarklet/main/aeries/aeries.js)
+[Source Code](https://github.com/GavinGoGaming/Devmarklet/raw/main/aeries/aeries.js)
+
+Min. Gloe ver: u3
