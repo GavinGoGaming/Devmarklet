@@ -3,7 +3,7 @@
 // @namespace    edgenbot
 // @description  Auto watch & fill via Edgenuity platform.
 // @author       GavinGoGaming
-// @version      1.3
+// @version      1.4
 // @match        https://r15.core.learn.edgenuity.com/ContentViewers/FrameChain/Activity*
 // @run-at       document-idle
 // @grant        none
@@ -16,7 +16,8 @@
     // (https://aistudio.google.com/api-keys)
     // MAKE ONE AND PUT THE API KEY HERE
     const GEMINI_API_KEY = "";
-
+    // MIXTRAL KEY IS OPTIONAL
+    const MIXTRAL_KEY = "";
 
 
     const THRESHOLD = 5;
@@ -188,17 +189,16 @@
 
         return [...primary, ...secondary];
     }
-
     const GEMINI_MODEL = "gemini-2.5-flash";
+    const MIXTRAL_MODEL = "mistral-small-2506";
 
     async function askGemini(messages) {
-        // Convert OpenAI-style messages to Gemini format
         const contents = messages.map(msg => ({
             role: msg.role === "assistant" ? "model" : "user",
             parts: [{ text: msg.content }]
         }));
 
-        const res = await fetch(
+        let res = await fetch(
             `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
             {
                 method: "POST",
@@ -214,9 +214,41 @@
             }
         );
 
-        if (!res.ok)
-            throw new Error(await res.text());
+        // Fallback to Mixtral
+        if (!res.ok) {
+            console.warn("Gemini failed, swapping to Mixtral...");
 
+            res = await fetch("https://api.mistral.ai/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${MIXTRAL_KEY}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    model: MIXTRAL_MODEL,
+                    temperature: 0,
+                    messages
+                })
+            });
+
+            if (!res.ok) {
+                console.warn("Mixtral also failed.");
+                return [];
+            }
+
+            const json = await res.json();
+            const text = json.choices?.[0]?.message?.content ?? "";
+
+            console.log(text);
+
+            try {
+                return JSON.parse(text.replace(/^```json\s*|\s*```$/g, ""));
+            } catch {
+                return null;
+            }
+        }
+
+        // Gemini succeeded
         const json = await res.json();
         const text = json.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
 
@@ -304,7 +336,7 @@
                 if(!colmatchQuestions) break;
                 var colmatchAnswers = await getColmatchAnswers(colmatchQuestions);
                 console.log(colmatchAnswers);
-                if(!colmatchAnswers) break;
+                if(!colmatchAnswers || colmatchAnswers==[]) break;
                 solved = true;
                 arrangeCategories(element, colmatchAnswers);
                 break;
@@ -318,7 +350,7 @@
                 if(!questions) break;
                 var pracAnswers = await generatePractice(questions);
                 console.log(pracAnswers);
-                if(!pracAnswers) break;
+                if(!pracAnswers || pracAnswers==[]) break;
                 var answerContainer = element.querySelector('.Practice_Question_Body:has(.answer-choice)');
                 solved = true;
                 fillPractice(answerContainer, pracAnswers);
@@ -330,6 +362,7 @@
         if(solved) {
             clickDone(500);
             questionNotified = true;
+            setTimeout(clickNext, 900);
         }
     }
 
