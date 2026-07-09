@@ -3,7 +3,7 @@
 // @namespace    edgenbot
 // @description  Auto watch & fill via Edgenuity platform.
 // @author       GavinGoGaming
-// @version      1.1
+// @version      1.2
 // @match        https://r15.core.learn.edgenuity.com/ContentViewers/FrameChain/Activity*
 // @run-at       document-idle
 // @grant        none
@@ -18,7 +18,7 @@
     const GEMINI_API_KEY = "";
 
 
-  
+
     const THRESHOLD = 5;
     let triggered = false;
     let questionNotified = false;
@@ -134,8 +134,6 @@
         return [...containers].map(container => {
             const result = [];
 
-            // If there are nested Practice_Question_Body elements, use those.
-            // Otherwise use the container itself.
             const parts = [...container.children].filter(
                 el => el.classList.contains("Practice_Question_Body")
             );
@@ -144,37 +142,38 @@
             let currentChoices = null;
 
             for (const section of sections) {
-                // Text
-                const p = section.querySelector(":scope > p");
-                if (p) {
+                // All immediate paragraphs
+                const paragraphs = [...section.querySelectorAll(":scope > p")];
+                if (paragraphs.length) {
                     if (currentChoices) {
                         result.push(currentChoices);
                         currentChoices = null;
                     }
 
-                    result.push({
-                        text: p.textContent.trim()
-                    });
-                    continue;
+                    for (const p of paragraphs) {
+                        result.push({
+                            text: p.textContent.trim()
+                        });
+                    }
                 }
 
-                // Choice
-                const choice = section.querySelector(":scope > .answer-choice");
-                if (choice) {
+                // All immediate answer choices
+                const choices = [...section.querySelectorAll(":scope > .answer-choice")];
+                if (choices.length) {
                     if (!currentChoices)
                         currentChoices = [];
 
-                    const input = choice.querySelector("input.answer-choice-button");
-                    const label = choice.querySelector("label.answer-choice-label");
+                    for (const choice of choices) {
+                        const input = choice.querySelector("input.answer-choice-button");
+                        const label = choice.querySelector("label.answer-choice-label");
 
-                    currentChoices.push({
-                        id: (input?.type==='checkbox'?false:input?.value) || label.htmlFor.split('_').pop(),
-                        text: label?.textContent.trim() ?? ""
-                    });
-                    continue;
+                        currentChoices.push({
+                            id: (input?.type === "checkbox" ? false : input?.value)
+                            || label.htmlFor.split("_").pop(),
+                            text: label?.textContent.trim() ?? ""
+                        });
+                    }
                 }
-
-                // Ignore empty sections
             }
 
             if (currentChoices)
@@ -183,7 +182,7 @@
             return result;
         });
     }
-    
+
     const GEMINI_MODEL = "gemini-2.5-flash";
 
     async function askGemini(messages) {
