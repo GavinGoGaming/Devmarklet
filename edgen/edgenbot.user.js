@@ -3,7 +3,7 @@
 // @namespace    edgenbot
 // @description  Auto watch & fill via Edgenuity platform.
 // @author       GavinGoGaming
-// @version      1.2
+// @version      1.3
 // @match        https://r15.core.learn.edgenuity.com/ContentViewers/FrameChain/Activity*
 // @run-at       document-idle
 // @grant        none
@@ -130,8 +130,8 @@
             input.dispatchEvent(new Event("change", { bubbles: true }));
         }
     }
-    function getPractice(containers) {
-        return [...containers].map(container => {
+    function getPractice(containers, qfrDoc) {
+        const primary = [...containers].map(container => {
             const result = [];
 
             const parts = [...container.children].filter(
@@ -181,6 +181,12 @@
 
             return result;
         });
+
+        const secondary = [...qfrDoc.querySelectorAll('.ui-tabs-panel')].map(el => {
+            return [...([...el.querySelectorAll('p')].map(p => p.textContent)), ...([...el.querySelectorAll('img')].map(p => p.alt))];
+        });
+
+        return [...primary, ...secondary];
     }
 
     const GEMINI_MODEL = "gemini-2.5-flash";
@@ -282,7 +288,6 @@
         if(qfrDoc.querySelector('.Practice_Question_Body')) { type = 'practice'; element = qfrDoc.querySelector('.Practice_Question_Body').parentElement; }
         console.log('Question type: ' + type);
         if(!type) return console.error("Undefined question type");
-        questionNotified = true;
 
         // broken solvers dont set this
         let solved = false;
@@ -300,6 +305,7 @@
                 var colmatchAnswers = await getColmatchAnswers(colmatchQuestions);
                 console.log(colmatchAnswers);
                 if(!colmatchAnswers) break;
+                solved = true;
                 arrangeCategories(element, colmatchAnswers);
                 break;
             case 'matching':
@@ -307,20 +313,24 @@
                 break;
             case 'practice':
                 console.log(element);
-                var questions = getPractice(element.children);
+                var questions = getPractice(element.children, qfrDoc);
                 console.log(questions);
                 if(!questions) break;
                 var pracAnswers = await generatePractice(questions);
                 console.log(pracAnswers);
                 if(!pracAnswers) break;
                 var answerContainer = element.querySelector('.Practice_Question_Body:has(.answer-choice)');
+                solved = true;
                 fillPractice(answerContainer, pracAnswers);
                 break;
             default:
                 console.log('Unsupported question type');
         }
 
-        if(solved) clickDone(500);
+        if(solved) {
+            clickDone(500);
+            questionNotified = true;
+        }
     }
 
     function isQuestionSlideActive() {
