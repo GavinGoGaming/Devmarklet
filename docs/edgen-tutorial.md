@@ -23,3 +23,10 @@ Getting a google AI Studio api key is needed for auto-practice/auto-solve. This 
 (ex. `const GEMINI_API_KEY = "AQ.abcdefghijklmnopqrstvuwxyz";`)
 
 <img width="740" height="107" alt="image" src="https://github.com/user-attachments/assets/4fb3b55f-da9e-4dfb-9b71-208a3f35f629" />
+
+You can also add a Mistral key as a backup. I highly reccomend this as google has strict limits.
+
+1. Go to [Mistral Studio Console](https://console.mistral.ai/)
+2. Go to API Keys
+3. Add a new key, any name, no expiration
+4. Copy the key and enter it under the MIXTRAL_KEY line
