@@ -3,8 +3,10 @@
 // @namespace    edgenbot
 // @description  Auto watch & fill via Edgenuity platform.
 // @author       GavinGoGaming
-// @version      1.4
+// @version      1.5
 // @match        https://r15.core.learn.edgenuity.com/ContentViewers/FrameChain/Activity*
+// @match        https://r15.core.learn.edgenuity.com/ContentViewers/AssesmentViewer/*
+// @match        https://r15.core.learn.edgenuity.com/player/LTILaunch/
 // @run-at       document-idle
 // @grant        none
 // ==/UserScript==
@@ -16,7 +18,7 @@
     // (https://aistudio.google.com/api-keys)
     // MAKE ONE AND PUT THE API KEY HERE
     const GEMINI_API_KEY = "";
-    // MIXTRAL KEY IS OPTIONAL
+    // MIXTRAL KEY IS OPTIONAL BUT HIGHLY RECCOMENDED
     const MIXTRAL_KEY = "";
 
 
@@ -34,7 +36,21 @@
         })
             .forEach(child => sorter.appendChild(child));
     }
-    function arrangeCategories(container, data) {
+    function arrangeCategories(container, data, trueFill) {
+        if (!trueFill) {
+            const lines = [];
+
+            for (const [category, items] of Object.entries(data)) {
+                lines.push(`${category}:`);
+                for (const item of items) {
+                    lines.push(`  • ${item}`);
+                }
+                lines.push("");
+            }
+
+            console.log(lines.join("\n"));
+            return;
+        }
         // Map category name -> drop container
         const dropMap = {};
         container.querySelectorAll(".catColumn").forEach(col => {
@@ -100,7 +116,7 @@
     }
 
     // Practices
-    function fillPractice(container, id) {
+    function fillPractice(container, id, trueFill) {
         const ids = Array.isArray(id) ? id.map(String) : [String(id)];
 
         for (const value of ids) {
@@ -121,6 +137,35 @@
             }
             console.log(input);
 
+            if (!trueFill) {
+                const answers = ids.map(value => {
+                    let input = container.querySelector(
+                        `input.answer-choice-button[value="${CSS.escape(value)}"]`
+                    );
+
+                    if (!input) {
+                        const label = [...container.querySelectorAll("label.answer-choice-label")]
+                        .find(label => label.htmlFor.split("_").pop() === value);
+
+                        input = label
+                            ? container.querySelector(`#${CSS.escape(label.htmlFor)}`)
+                        : null;
+                    }
+
+                    if (!input) return value;
+
+                    const label = container.querySelector(
+                        `label[for="${CSS.escape(input.id)}"]`
+                    );
+
+                    return label?.textContent.trim() ?? value;
+                });
+
+                console.log(
+                    `Correct answer${answers.length > 1 ? "s" : ""}:\n\n• ${answers.join("\n• ")}`
+                );
+                return;
+            }
             if (!input || input.checked) continue;
 
             const choice = input.closest(".answer-choice");
@@ -308,16 +353,22 @@
         if(nextBtn) nextBtn.click();
     }
 
-    async function notifyQuestion() {
+    async function notifyQuestion(fill) {
         console.log("Question notify");
-        const qfrDoc = document.getElementById('iFramePreview')?.contentDocument;
+        var qfrDoc = document.getElementById('iFramePreview')?.contentDocument;
+        if(location.pathname.includes("AssessmentViewer")) qfrDoc = document;
         if(!qfrDoc) return console.error("No question doc");
 
         let type, element;
         if(qfrDoc.querySelector('#matchingActivity')) { type = 'matching'; element = qfrDoc.querySelector('#matchingActivity'); }
         if(qfrDoc.querySelector('.sorter')) { type = 'timeline'; element = qfrDoc.querySelector('.sorter'); }
         if(qfrDoc.querySelector('.sbgColumn')) { type = 'columnmatch'; element = qfrDoc.querySelector('.containerDiv'); }
-        if(qfrDoc.querySelector('.Practice_Question_Body')) { type = 'practice'; element = qfrDoc.querySelector('.Practice_Question_Body').parentElement; }
+        if(qfrDoc.querySelector('.Practice_Question_Body')) { type = 'practice';
+                                                            element = qfrDoc.querySelector('.Practice_Question_Body').parentElement;
+                                                             if(location.pathname.includes("AssessmentViewer")) {
+                                                                 element = [...document.querySelectorAll('.Assessment_Main_Body_Content_Question')].filter(b=>b.id&&b.style.display!=='none')[0].querySelector('.Question_Contents>div')
+                                                             }
+        }
         console.log('Question type: ' + type);
         if(!type) return console.error("Undefined question type");
 
@@ -338,7 +389,7 @@
                 console.log(colmatchAnswers);
                 if(!colmatchAnswers || colmatchAnswers==[]) break;
                 solved = true;
-                arrangeCategories(element, colmatchAnswers);
+                arrangeCategories(element, colmatchAnswers, fill);
                 break;
             case 'matching':
                 console.log("Matching assignment DIY");
@@ -353,7 +404,7 @@
                 if(!pracAnswers || pracAnswers==[]) break;
                 var answerContainer = element.querySelector('.Practice_Question_Body:has(.answer-choice)');
                 solved = true;
-                fillPractice(answerContainer, pracAnswers);
+                fillPractice(answerContainer, pracAnswers, fill);
                 break;
             default:
                 console.log('Unsupported question type');
@@ -384,6 +435,11 @@
     }
 
     function tryAdvance() {
+        if(location.pathname.includes("AssessmentViewer")) {
+            console.log("Trying (assesment)");
+            notifyQuestion(false);
+            return;
+        }
         console.log("Trying...");
         if(isActivityCompleted()) {
             console.log("Activity complete");
@@ -392,7 +448,7 @@
         if (isQuestionSlideActive()) {
             triggered = false;
             if (!questionNotified) {
-                notifyQuestion();
+                notifyQuestion(true);
             }
             return;
         }
