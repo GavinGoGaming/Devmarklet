@@ -18,7 +18,7 @@
     // (https://aistudio.google.com/api-keys)
     // MAKE ONE AND PUT THE API KEY HERE
     const GEMINI_API_KEY = "";
-    // MIXTRAL KEY IS OPTIONAL BUT HIGHLY RECCOMENDED
+    // MIXTRAL KEY IS OPTIONAL BUT RECOMMENDED
     const MIXTRAL_KEY = "";
 
 
@@ -393,6 +393,8 @@
                 break;
             case 'matching':
                 console.log("Matching assignment DIY");
+                clickDone();
+                solved = true;
                 break;
             case 'practice':
                 console.log(element);
