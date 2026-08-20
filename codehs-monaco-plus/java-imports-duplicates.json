@@ -1,0 +1,423 @@
+{
+  "AccessibleRole": [
+    "javax.accessibility.AccessibleRole",
+    "javafx.scene.AccessibleRole"
+  ],
+  "ActionEvent": [
+    "java.awt.event.ActionEvent",
+    "javafx.event.ActionEvent"
+  ],
+  "AlreadyBoundException": [
+    "java.nio.channels.AlreadyBoundException",
+    "java.rmi.AlreadyBoundException"
+  ],
+  "AnySeqHelper": [
+    "org.omg.CORBA.AnySeqHelper",
+    "org.omg.DynamicAny.AnySeqHelper"
+  ],
+  "AttributeList": [
+    "javax.management.AttributeList",
+    "javax.swing.text.html.parser.AttributeList"
+  ],
+  "AuthenticationException": [
+    "javax.naming.AuthenticationException",
+    "javax.security.sasl.AuthenticationException"
+  ],
+  "Binding": [
+    "javax.naming.Binding",
+    "org.omg.CosNaming.Binding"
+  ],
+  "BindingType": [
+    "javax.xml.ws.BindingType",
+    "org.omg.CosNaming.BindingType"
+  ],
+  "Bounds": [
+    "org.omg.CORBA.Bounds",
+    "org.omg.CORBA.TypeCodePackage.Bounds",
+    "javafx.geometry.Bounds"
+  ],
+  "Box": [
+    "javax.swing.Box",
+    "javafx.scene.shape.Box"
+  ],
+  "Button": [
+    "java.awt.Button",
+    "javafx.scene.control.Button"
+  ],
+  "Canvas": [
+    "java.awt.Canvas",
+    "javafx.scene.canvas.Canvas"
+  ],
+  "Certificate": [
+    "java.security.cert.Certificate",
+    "javax.security.cert.Certificate"
+  ],
+  "CertificateEncodingException": [
+    "java.security.cert.CertificateEncodingException",
+    "javax.security.cert.CertificateEncodingException"
+  ],
+  "CertificateException": [
+    "java.security.cert.CertificateException",
+    "javax.security.cert.CertificateException"
+  ],
+  "CertificateExpiredException": [
+    "java.security.cert.CertificateExpiredException",
+    "javax.security.cert.CertificateExpiredException"
+  ],
+  "CertificateNotYetValidException": [
+    "java.security.cert.CertificateNotYetValidException",
+    "javax.security.cert.CertificateNotYetValidException"
+  ],
+  "CertificateParsingException": [
+    "java.security.cert.CertificateParsingException",
+    "javax.security.cert.CertificateParsingException"
+  ],
+  "Clipboard": [
+    "java.awt.datatransfer.Clipboard",
+    "javafx.scene.input.Clipboard"
+  ],
+  "Color": [
+    "java.awt.Color",
+    "javafx.scene.paint.Color"
+  ],
+  "ConnectException": [
+    "java.net.ConnectException",
+    "java.rmi.ConnectException"
+  ],
+  "Control": [
+    "javax.sound.sampled.Control",
+    "javafx.scene.control.Control"
+  ],
+  "CurrentHelper": [
+    "org.omg.CORBA.CurrentHelper",
+    "org.omg.PortableInterceptor.CurrentHelper",
+    "org.omg.PortableServer.CurrentHelper"
+  ],
+  "Cursor": [
+    "java.awt.Cursor",
+    "javafx.scene.Cursor"
+  ],
+  "Date": [
+    "java.sql.Date",
+    "java.util.Date"
+  ],
+  "DefaultLoaderRepository": [
+    "javax.management.DefaultLoaderRepository",
+    "javax.management.loading.DefaultLoaderRepository"
+  ],
+  "Delegate": [
+    "org.omg.CORBA.portable.Delegate",
+    "org.omg.CORBA_2_3.portable.Delegate"
+  ],
+  "Dialog": [
+    "java.awt.Dialog",
+    "javafx.scene.control.Dialog"
+  ],
+  "Dimension2D": [
+    "java.awt.geom.Dimension2D",
+    "javafx.geometry.Dimension2D"
+  ],
+  "Duration": [
+    "java.time.Duration",
+    "javax.xml.datatype.Duration",
+    "javafx.util.Duration"
+  ],
+  "DynamicImplementation": [
+    "org.omg.CORBA.DynamicImplementation",
+    "org.omg.PortableServer.DynamicImplementation"
+  ],
+  "Event": [
+    "java.awt.Event",
+    "javafx.event.Event"
+  ],
+  "FactoryConfigurationError": [
+    "javax.xml.parsers.FactoryConfigurationError",
+    "javax.xml.stream.FactoryConfigurationError"
+  ],
+  "FieldNameHelper": [
+    "org.omg.CORBA.FieldNameHelper",
+    "org.omg.DynamicAny.FieldNameHelper"
+  ],
+  "Font": [
+    "java.awt.Font",
+    "javafx.scene.text.Font"
+  ],
+  "Formatter": [
+    "java.util.Formatter",
+    "java.util.logging.Formatter"
+  ],
+  "ForwardRequest": [
+    "org.omg.PortableInterceptor.ForwardRequest",
+    "org.omg.PortableServer.ForwardRequest"
+  ],
+  "ForwardRequestHelper": [
+    "org.omg.PortableInterceptor.ForwardRequestHelper",
+    "org.omg.PortableServer.ForwardRequestHelper"
+  ],
+  "Image": [
+    "java.awt.Image",
+    "javafx.scene.image.Image"
+  ],
+  "ImageView": [
+    "javax.swing.text.html.ImageView",
+    "javafx.scene.image.ImageView"
+  ],
+  "InconsistentTypeCode": [
+    "org.omg.CORBA.ORBPackage.InconsistentTypeCode",
+    "org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode"
+  ],
+  "InputEvent": [
+    "java.awt.event.InputEvent",
+    "javafx.scene.input.InputEvent"
+  ],
+  "InputMethodEvent": [
+    "java.awt.event.InputMethodEvent",
+    "javafx.scene.input.InputMethodEvent"
+  ],
+  "InputMethodHighlight": [
+    "java.awt.im.InputMethodHighlight",
+    "javafx.scene.input.InputMethodHighlight"
+  ],
+  "InputStream": [
+    "java.io.InputStream",
+    "org.omg.CORBA.portable.InputStream",
+    "org.omg.CORBA_2_3.portable.InputStream"
+  ],
+  "Insets": [
+    "java.awt.Insets",
+    "javafx.geometry.Insets"
+  ],
+  "IntrospectionException": [
+    "java.beans.IntrospectionException",
+    "javax.management.IntrospectionException"
+  ],
+  "InvalidAttributeValueException": [
+    "javax.management.InvalidAttributeValueException",
+    "javax.naming.directory.InvalidAttributeValueException"
+  ],
+  "InvalidKeyException": [
+    "java.security.InvalidKeyException",
+    "javax.management.openmbean.InvalidKeyException"
+  ],
+  "InvalidName": [
+    "org.omg.CORBA.ORBPackage.InvalidName",
+    "org.omg.CosNaming.NamingContextPackage.InvalidName",
+    "org.omg.PortableInterceptor.ORBInitInfoPackage.InvalidName"
+  ],
+  "InvalidNameHelper": [
+    "org.omg.CosNaming.NamingContextPackage.InvalidNameHelper",
+    "org.omg.PortableInterceptor.ORBInitInfoPackage.InvalidNameHelper"
+  ],
+  "InvalidValue": [
+    "org.omg.CORBA.DynAnyPackage.InvalidValue",
+    "org.omg.DynamicAny.DynAnyPackage.InvalidValue"
+  ],
+  "KeyEvent": [
+    "java.awt.event.KeyEvent",
+    "javafx.scene.input.KeyEvent"
+  ],
+  "Label": [
+    "java.awt.Label",
+    "javafx.scene.control.Label"
+  ],
+  "Line": [
+    "javax.sound.sampled.Line",
+    "javafx.scene.shape.Line"
+  ],
+  "ListView": [
+    "javax.swing.text.html.ListView",
+    "javafx.scene.control.ListView"
+  ],
+  "MarshalException": [
+    "java.rmi.MarshalException",
+    "javax.xml.bind.MarshalException",
+    "javax.xml.crypto.MarshalException"
+  ],
+  "Media": [
+    "javax.print.attribute.standard.Media",
+    "javafx.scene.media.Media"
+  ],
+  "Menu": [
+    "java.awt.Menu",
+    "javafx.scene.control.Menu"
+  ],
+  "MenuBar": [
+    "java.awt.MenuBar",
+    "javafx.scene.control.MenuBar"
+  ],
+  "MenuItem": [
+    "java.awt.MenuItem",
+    "javafx.scene.control.MenuItem"
+  ],
+  "MimeTypeParseException": [
+    "java.awt.datatransfer.MimeTypeParseException",
+    "javax.activation.MimeTypeParseException"
+  ],
+  "Modifier": [
+    "java.lang.reflect.Modifier",
+    "javax.lang.model.element.Modifier"
+  ],
+  "MouseEvent": [
+    "java.awt.event.MouseEvent",
+    "javafx.scene.input.MouseEvent"
+  ],
+  "NameValuePair": [
+    "org.omg.CORBA.NameValuePair",
+    "org.omg.DynamicAny.NameValuePair"
+  ],
+  "NameValuePairHelper": [
+    "org.omg.CORBA.NameValuePairHelper",
+    "org.omg.DynamicAny.NameValuePairHelper"
+  ],
+  "ObjectIdHelper": [
+    "org.omg.PortableInterceptor.ObjectIdHelper",
+    "org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper"
+  ],
+  "ObjectImpl": [
+    "org.omg.CORBA.portable.ObjectImpl",
+    "org.omg.CORBA_2_3.portable.ObjectImpl"
+  ],
+  "ORB": [
+    "org.omg.CORBA.ORB",
+    "org.omg.CORBA_2_3.ORB"
+  ],
+  "OutputStream": [
+    "java.io.OutputStream",
+    "org.omg.CORBA.portable.OutputStream",
+    "org.omg.CORBA_2_3.portable.OutputStream"
+  ],
+  "Paper": [
+    "java.awt.print.Paper",
+    "javafx.print.Paper"
+  ],
+  "ParagraphView": [
+    "javax.swing.text.html.ParagraphView",
+    "javax.swing.text.ParagraphView"
+  ],
+  "Parameter": [
+    "java.lang.reflect.Parameter",
+    "org.omg.Dynamic.Parameter"
+  ],
+  "Point2D": [
+    "java.awt.geom.Point2D",
+    "javafx.geometry.Point2D"
+  ],
+  "Policy": [
+    "java.security.Policy",
+    "javax.security.auth.Policy"
+  ],
+  "Polygon": [
+    "java.awt.Polygon",
+    "javafx.scene.shape.Polygon"
+  ],
+  "Popup": [
+    "javax.swing.Popup",
+    "javafx.stage.Popup"
+  ],
+  "PrinterJob": [
+    "java.awt.print.PrinterJob",
+    "javafx.print.PrinterJob"
+  ],
+  "PrintQuality": [
+    "javax.print.attribute.standard.PrintQuality",
+    "javafx.print.PrintQuality"
+  ],
+  "ProtocolException": [
+    "java.net.ProtocolException",
+    "javax.xml.ws.ProtocolException"
+  ],
+  "Provider": [
+    "java.security.Provider",
+    "javax.xml.ws.spi.Provider"
+  ],
+  "Proxy": [
+    "java.lang.reflect.Proxy",
+    "java.net.Proxy"
+  ],
+  "Rectangle": [
+    "java.awt.Rectangle",
+    "javafx.scene.shape.Rectangle"
+  ],
+  "Rectangle2D": [
+    "java.awt.geom.Rectangle2D",
+    "javafx.geometry.Rectangle2D"
+  ],
+  "Reference": [
+    "java.lang.ref.Reference",
+    "javax.naming.Reference"
+  ],
+  "Region": [
+    "javax.swing.plaf.synth.Region",
+    "javafx.scene.layout.Region"
+  ],
+  "ScrollPane": [
+    "java.awt.ScrollPane",
+    "javafx.scene.control.ScrollPane"
+  ],
+  "Service": [
+    "javax.xml.ws.Service",
+    "javafx.concurrent.Service"
+  ],
+  "State": [
+    "javax.swing.plaf.nimbus.State",
+    "org.omg.PortableServer.POAManagerPackage.State"
+  ],
+  "TableColumn": [
+    "javax.swing.table.TableColumn",
+    "javafx.scene.control.TableColumn"
+  ],
+  "TableView": [
+    "javax.swing.text.TableView",
+    "javafx.scene.control.TableView"
+  ],
+  "TextArea": [
+    "java.awt.TextArea",
+    "javafx.scene.control.TextArea"
+  ],
+  "TextField": [
+    "java.awt.TextField",
+    "javafx.scene.control.TextField"
+  ],
+  "Timer": [
+    "java.util.Timer",
+    "javax.management.timer.Timer",
+    "javax.swing.Timer"
+  ],
+  "Timestamp": [
+    "java.security.Timestamp",
+    "java.sql.Timestamp"
+  ],
+  "Track": [
+    "javax.sound.midi.Track",
+    "javafx.scene.media.Track"
+  ],
+  "TypeMismatch": [
+    "org.omg.CORBA.DynAnyPackage.TypeMismatch",
+    "org.omg.DynamicAny.DynAnyPackage.TypeMismatch",
+    "org.omg.IOP.CodecPackage.TypeMismatch"
+  ],
+  "TypeMismatchHelper": [
+    "org.omg.DynamicAny.DynAnyPackage.TypeMismatchHelper",
+    "org.omg.IOP.CodecPackage.TypeMismatchHelper"
+  ],
+  "UnknownHostException": [
+    "java.net.UnknownHostException",
+    "java.rmi.UnknownHostException"
+  ],
+  "UnmarshalException": [
+    "java.rmi.UnmarshalException",
+    "javax.xml.bind.UnmarshalException"
+  ],
+  "Window": [
+    "java.awt.Window",
+    "javafx.stage.Window"
+  ],
+  "WindowEvent": [
+    "java.awt.event.WindowEvent",
+    "javafx.stage.WindowEvent"
+  ],
+  "X509Certificate": [
+    "java.security.cert.X509Certificate",
+    "javax.security.cert.X509Certificate"
+  ]
+}
