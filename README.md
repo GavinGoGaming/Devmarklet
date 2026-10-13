@@ -7,15 +7,15 @@ A useful repo if bookmarklets made by developers for developers.
 [Install Ultimate](https://www.tampermonkey.net/script_installation.php#url=https://github.com/GavinGoGaming/Devmarklet/raw/refs/heads/main/codehs-monaco-plus/userscript.js)
 [Install Minimal](https://www.tampermonkey.net/script_installation.php#url=https://github.com/GavinGoGaming/Devmarklet/raw/refs/heads/main/codehs-monaco-plus/userscript.min.js)
 [Source Code](https://github.com/GavinGoGaming/Devmarklet/tree/main/codehs-monaco-plus)
-[Ultimate on GreasyFork](https://greasyfork.org/en/scripts/600109-codehs-gradmonaco)
+[(Ult) GreasyFork](https://greasyfork.org/en/scripts/600109-codehs-gradmonaco)
 
 <br/>
 
 **CodeHS GradAce** has the same features as GradMonaco, but is intended for the Ace editor option in the settings of CodeHS (and, every collab project). It includes an import map for auto import statements, enables built-in autocomplete (primitives, defined types, variables) as well as adding Java 8 classes to their autocomplete. Themes are in CSS format at the top of the file, and it comes with 'onedark' and 'beardedDarkVivid'. You can edit the chosen theme on line ~482 (exports.cssText = themes.THEME;).
 
-[Install Minimal](https://www.tampermonkey.net/script_installation.php#url=https://github.com/GavinGoGaming/Devmarklet/raw/refs/heads/main/codehs-ace-plus/userscript.js)
+[Install](https://www.tampermonkey.net/script_installation.php#url=https://github.com/GavinGoGaming/Devmarklet/raw/refs/heads/main/codehs-ace-plus/userscript.js)
 [Source Code](https://github.com/GavinGoGaming/Devmarklet/tree/main/codehs-ace-plus)
-[Install on GreasyFork](https://greasyfork.org/en/scripts/600108-codehs-gradace)
+[GreasyFork](https://greasyfork.org/en/scripts/600108-codehs-gradace)
 
 <br/>
 
