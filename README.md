@@ -2,11 +2,19 @@
 A useful repo if bookmarklets made by developers for developers.
 
 ## Userscripts
-**CodeHS Monaco+** is a dual version (Minimal & ultimate) userscript to improve your experience using CodeHS, specifically made for Java. Both versions include autocomplete for primitives, symbols, & common snippets, as well as Monaco theme importing with a note in both scripts on how to add themes from VScode extensions. By default, it imports Bearded Theme Vivid Black. The ultimate/normal version has an added import map for autocomplete & auto import statements for all Java 8 classes.
+**CodeHS GradMonaco** is a dual version (Minimal & ultimate) userscript to improve your experience using CodeHS, specifically made for Java. Both versions include autocomplete for primitives, symbols, & common snippets, as well as Monaco theme importing with a note in both scripts on how to add themes from VScode extensions. By default, it imports Bearded Theme Vivid Black. The ultimate/normal version has an added import map for autocomplete & auto import statements for all Java 8 classes.
 
 [Install Ultimate](https://www.tampermonkey.net/script_installation.php#url=https://github.com/GavinGoGaming/Devmarklet/raw/refs/heads/main/codehs-monaco-plus/userscript.js)
 [Install Minimal](https://www.tampermonkey.net/script_installation.php#url=https://github.com/GavinGoGaming/Devmarklet/raw/refs/heads/main/codehs-monaco-plus/userscript.min.js)
 [Source Code](https://github.com/GavinGoGaming/Devmarklet/tree/main/codehs-monaco-plus)
+[Ultimate on GreasyFork](https://greasyfork.org/en/scripts/600109-codehs-gradmonaco)
+
+<br/>
+**CodeHS GradAce** has the same features as GradMonaco, but is intended for the Ace editor option in the settings of CodeHS (and, every collab project). It includes an import map for auto import statements, enables built-in autocomplete (primitives, defined types, variables) as well as adding Java 8 classes to their autocomplete. Themes are in CSS format at the top of the file, and it comes with 'onedark' and 'beardedDarkVivid'. You can edit the chosen theme on line ~482 (exports.cssText = themes.THEME;).
+
+[Install Minimal](https://www.tampermonkey.net/script_installation.php#url=https://github.com/GavinGoGaming/Devmarklet/raw/refs/heads/main/codehs-ace-plus/userscript.js)
+[Source Code](https://github.com/GavinGoGaming/Devmarklet/tree/main/codehs-ace-plus)
+[Install on GreasyFork](https://greasyfork.org/en/scripts/600108-codehs-gradace)
 
 <br/>
 
